@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="my.css">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -43,7 +44,7 @@ body, html {
       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> LEARN</a>
       <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> HELP</a>
       <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-right"><i class="fa fa-user"></i> REGISTER</a>
+      <a id="registerBtn2" class="w3-bar-item w3-button w3-right"><i class="fa fa-user"></i> REGISTER</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -58,7 +59,7 @@ body, html {
   <div class="w3-display-left w3-text-white" style="padding:48px">
     <span class="w3-jumbo w3-hide-small">Start freecycling today</span><br>
     <span class="w3-large">Begin your share, swap and sustain journey</span>
-    <p><a href="#about" class="w3-button w3-red w3-padding-large w3-large w3-margin-top  w3-hover-opacity-off">Sign up now</a></p>
+    <p><a id="registerBtn" class="w3-button w3-red w3-padding-large w3-large w3-margin-top  w3-hover-opacity-off">Sign up now</a></p>
   </div> 
   <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -69,6 +70,29 @@ body, html {
     <i class="fa fa-linkedin w3-hover-opacity"></i>
   </div>
 </header>
+
+<!-- Register Modal Box -->
+<div id="registerModal" class="modal">
+  <span class="close">&times;</span>
+  <form class="modal-content">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Begin your freecycling journey</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email">
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password">
+      <div class="clearfix">
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
@@ -125,6 +149,31 @@ body, html {
 </footer>
  
 <script>
+
+var modal = document.getElementById("registerModal");
+var btn = document.getElementById("registerBtn");
+var span = document.getElementsByClassName("close")[0];
+var btn2 = document.getElementById("registerBtn2");
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+btn2.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function() {
+  if(event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
